@@ -4,7 +4,6 @@
 
 Esse projeto foi criado com intuito de aprender as novas features do React 18.
 
-
 ## Tecnologias
 
 - ReactJS
@@ -14,7 +13,6 @@ Esse projeto foi criado com intuito de aprender as novas features do React 18.
 - rick and morty api
 
 ## Como rodar ?
-
 
 ### Instalando dependencias
 
