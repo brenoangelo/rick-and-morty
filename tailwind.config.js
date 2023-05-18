@@ -16,6 +16,17 @@ module.exports = {
       },
       fontFamily: {
         'sans': ['Space Grotesk', 'sans-serif']
+      },
+      container: {
+        center: true,
+        padding: '1rem',
+        screens: {
+          sm: '500px',
+          md: '550px',
+          lg: '600px',
+          xl: '650px',
+          '2xl': '736px'
+        }
       }
     },
   },
