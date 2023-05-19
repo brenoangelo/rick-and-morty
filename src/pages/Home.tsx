@@ -1,3 +1,4 @@
+import { CardsSection } from '../components/CardsSection';
 import { Search } from '../components/Search';
 
 export function Home() {
@@ -13,6 +14,8 @@ export function Home() {
           </div>
         </div>
       </header>
+      
+      <CardsSection />
     </div>
   );
 }
