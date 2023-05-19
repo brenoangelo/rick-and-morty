@@ -1,14 +1,24 @@
+import { Link } from "react-router-dom";
+
+const statusColors = {
+  Alive: 'bg-green-300',
+  Dead: 'bg-red-300',
+  unknown: 'bg-yellow-300'
+}
+
 interface CardProps {
   name: string;
   status: 'Alive' | 'Dead';
   image: string;
+  id: number;
 }
 
-export function Card({ name, status, image }: CardProps) {
-  const statusColor = status === 'Alive' ? 'bg-green-300' : 'bg-red-300';
+export function Card({ name, status, image, id }: CardProps) {
+  const statusColor = statusColors[status];
 
   return (
-    <div
+    <Link
+      to={`/character/${id}`}
       className={`group w-48 h-64 relative border-2 rounded-md hover:border-green-300 cursor-pointer transition-colors`}
     >
       <img
@@ -26,6 +36,6 @@ export function Card({ name, status, image }: CardProps) {
           <span className="text-white text-xs">{status}</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

@@ -1,7 +1,26 @@
+import { useEffect, useState } from 'react';
 import { CardsSection } from '../components/CardsSection';
 import { Search } from '../components/Search';
+import { api } from '../services/api';
 
 export function Home() {
+  const [characters, setCharacters] = useState([]);
+
+  useEffect(() => {
+    getCharacters();
+  }, []);
+
+  async function getCharacters() {
+    try {
+      const { data } = await api.get('/character/');
+
+      setCharacters(data.results)
+
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <div>
       <header className="bg-hero-pattern min-h-[530px] bg-no-repeat bg-cover bg-bottom">
@@ -14,8 +33,8 @@ export function Home() {
           </div>
         </div>
       </header>
-      
-      <CardsSection />
+
+      <CardsSection characters={characters}/>
     </div>
   );
 }
