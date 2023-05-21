@@ -51,7 +51,7 @@ export function CardsSection({characters}) {
           image={card.image}
           name={card.name}
           status={card.status as 'Alive' | 'Dead'}
-          id={1}
+          id={card.id}
         />
       ))}
     </main>
