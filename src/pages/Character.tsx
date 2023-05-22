@@ -4,13 +4,18 @@ import { PersonProfile } from '../components/PersonProfile';
 import { InfoFlag } from '../components/InfoFlag';
 import { useGetPerson } from '../hooks/useGetPerson';
 import { ArrowLeft } from 'phosphor-react';
+import { LogoLoading } from '../components/LogoLoading';
 
 export function Character() {
   const { id } = useParams();
   const { characterInfo, loading } = useGetPerson(Number(id));
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <LogoLoading />
+      </div>
+    );
   }
 
   return (
@@ -32,7 +37,7 @@ export function Character() {
 
         <InfoFlag
           value={characterInfo.status}
-          type={characterInfo.status === 'Alive' ? 'alive' : 'dead'}
+          type={characterInfo?.status.toLocaleLowerCase() as 'alive' | 'dead'}
           prefix="Status"
         />
 

@@ -11,31 +11,31 @@ import {
 const infoTypes = {
   femaleGender: {
     icon: <GenderFemale size={20} weight="bold" />,
-    styles: 'border-yellow-300 text-yellow-300',
+    color: 'yellow-300',
   },
   maleGender: {
     icon: <GenderMale size={20} weight="bold" />,
-    styles: 'border-yellow-300 text-yellow-300',
+    color: 'yellow-300',
   },
   alive: {
     icon: <Smiley size={20} weight="bold" />,
-    styles: 'border-green-300 text-green-200',
+    color: 'green-300',
   },
   dead: {
     icon: <SmileyXEyes size={20} weight="bold" />,
-    styles: 'border-red-300 text-red-300',
+    color: 'red-300',
   },
   species: {
     icon: <Alien size={20} weight="bold" />,
-    styles: 'border-blue-100 text-blue-100',
+    color: 'blue-100',
   },
   origin: {
     icon: <RocketLaunch size={20} weight="bold" />,
-    styles: 'border-white text-white',
+    color: 'white',
   },
   location: {
     icon: <MapPin size={20} weight="bold" />,
-    styles: 'border-pink-300 text-pink-300',
+    color: 'pink-300',
   },
 };
 
@@ -46,11 +46,15 @@ interface InfoFlagProps {
 }
 
 export function InfoFlag({ type, value, prefix }: InfoFlagProps) {
-  const { styles, icon } = infoTypes[type];
+  const { color, icon } = infoTypes[type];
+
+  if(!infoTypes[type]) {
+    return null;
+  }
 
   return (
     <div
-      className={`text-white border-2 ${styles} flex items-center gap-2 max-w-sm w-full h-12 px-4 rounded-md`}
+      className={`text-white border-2 text-${color} border-${color} flex items-center gap-2 max-w-sm w-full h-12 px-4 rounded-md`}
     >
       {icon}
       <strong>{prefix}:</strong>{' '}
