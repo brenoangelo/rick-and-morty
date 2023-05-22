@@ -29,7 +29,7 @@ interface ResponseCharacters {
   }[];
 }
 
-type Characters = ResponseCharacters['results'];
+export type Characters = ResponseCharacters['results'];
 
 export function useGetCharacters() {
   const [isPending, startTransition] = useTransition();

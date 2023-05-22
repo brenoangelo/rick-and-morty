@@ -8,7 +8,7 @@ const statusColors = {
 
 interface CardProps {
   name: string;
-  status: 'Alive' | 'Dead';
+  status: 'Alive' | 'Dead' | 'unknown';
   image: string;
   id: number;
 }

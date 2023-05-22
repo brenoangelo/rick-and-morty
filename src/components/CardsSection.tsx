@@ -1,12 +1,8 @@
+import { Characters } from '../hooks/useGetCharacters';
 import { Card } from './Card';
 
 interface CardsSectionProps {
-  characters: {
-    image: string;
-    name: string;
-    status: 'Alive' | 'Dead';
-    id: number;
-  }[];
+  characters: Characters;
 }
 
 export function CardsSection({ characters }: CardsSectionProps) {
