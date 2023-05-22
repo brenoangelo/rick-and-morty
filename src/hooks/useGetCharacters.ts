@@ -1,4 +1,9 @@
-import { useEffect, useState } from 'react';
+import {
+  useTransition,
+  useEffect,
+  useState,
+  useCallback,
+} from 'react';
 import { api } from '../services/api';
 
 interface ResponseCharacters {
@@ -27,20 +32,21 @@ interface ResponseCharacters {
 type Characters = ResponseCharacters['results'];
 
 export function useGetCharacters() {
+  const [isPending, startTransition] = useTransition();
+
   const [characters, setCharacters] = useState<Characters>([]);
   const [totalCount, setTotalCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    getCharacters();
+    startTransition(() => {
+      getCharacters();
+    });
   }, [search]);
 
   async function getCharacters(currentPage = 1) {
-    setLoading(true)
-
     try {
       const { data } = await api.get<ResponseCharacters>(
         `/character/?page=${currentPage}&name=${search}`,
@@ -50,18 +56,25 @@ export function useGetCharacters() {
       setTotalCount(data.info.count);
     } catch (err) {
       console.log(err);
-    } finally {
-      setLoading(false)
     }
   }
 
-  function handleSearch(value: string) {
-    setSearch(value);
+  const handleSearch = useCallback(handleSearchFunction, []);
+
+  function handleSearchFunction(value: string) {
+    startTransition(() => {
+      setSearch(value);
+    });
   }
 
-  function handleChangePage(page: number) {
+  const handleChangePage = useCallback(handleChangePageFunction, []);
+
+  function handleChangePageFunction(page: number) {
     setCurrentPage(page);
-    getCharacters(page);
+
+    startTransition(() => {
+      getCharacters(page);
+    });
   }
 
   return {
@@ -70,6 +83,6 @@ export function useGetCharacters() {
     handleChangePage,
     currentPage,
     handleSearch,
-    loading
+    isPending,
   };
 }

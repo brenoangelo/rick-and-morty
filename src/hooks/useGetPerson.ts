@@ -31,9 +31,6 @@ export function useGetPerson(id: number) {
       const { data } = await api.get(`/character/${id}`);
 
       setCharacterInfo(data);
-      console.log({
-        data,
-      });
     } catch (err) {
       console.log(err);
     } finally {

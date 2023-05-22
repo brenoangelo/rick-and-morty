@@ -3,6 +3,7 @@ import {
   GenderFemale,
   GenderMale,
   MapPin,
+  Question,
   RocketLaunch,
   Smiley,
   SmileyXEyes,
@@ -24,6 +25,10 @@ const infoTypes = {
   dead: {
     icon: <SmileyXEyes size={20} weight="bold" />,
     color: 'red-300',
+  },
+  unknown: {
+    icon: <Question size={20} weight="bold" />,
+    color: 'blue-300',
   },
   species: {
     icon: <Alien size={20} weight="bold" />,

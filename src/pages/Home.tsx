@@ -12,7 +12,7 @@ export function Home() {
     handleChangePage,
     currentPage,
     handleSearch,
-    loading,
+    isPending,
   } = useGetCharacters();
 
   return (
@@ -28,7 +28,7 @@ export function Home() {
         </div>
       </header>
 
-      {loading ? (
+      {isPending ? (
         <div className="flex justify-center">
           <LogoLoading />
         </div>
