@@ -1,8 +1,9 @@
+import rickAndMortyLogo from '../../public/assets/rick-and-morty-logo.png'
 
 export function LogoLoading() {
   return (
     <img
-      src="/public/assets/rick-and-morty-logo.png" 
+      src={rickAndMortyLogo}
       className='max-w-lg w-full animate-pulse'
     />
   )
