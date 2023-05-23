@@ -1,4 +1,4 @@
-import rickAndMortyLogo from '../../public/assets/rick-and-morty-logo.png'
+import rickAndMortyLogo from '../assets/rick-and-morty-logo.png'
 
 export function LogoLoading() {
   return (

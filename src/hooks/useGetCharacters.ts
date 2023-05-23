@@ -1,9 +1,4 @@
-import {
-  useTransition,
-  useEffect,
-  useState,
-  useCallback,
-} from 'react';
+import { useTransition, useEffect, useState, useCallback } from 'react';
 import { api } from '../services/api';
 
 interface ResponseCharacters {
@@ -55,16 +50,17 @@ export function useGetCharacters() {
       setCharacters(data.results);
       setTotalCount(data.info.count);
     } catch (err) {
+      setCharacters([]);
+      setTotalCount(0);
+
       console.log(err);
     }
   }
 
-  const handleSearch = useCallback(handleSearchFunction, []);
+  const handleSearch = useCallback(handleSearchFunction, [characters]);
 
   function handleSearchFunction(value: string) {
-    startTransition(() => {
-      setSearch(value);
-    });
+    setSearch(value);
   }
 
   const handleChangePage = useCallback(handleChangePageFunction, []);
