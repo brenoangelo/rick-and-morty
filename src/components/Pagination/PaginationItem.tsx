@@ -1,4 +1,3 @@
-
 interface PaginationItemProps {
   number: number;
   isCurrent?: boolean;
@@ -8,27 +7,25 @@ interface PaginationItemProps {
 export function PaginationItem({
   isCurrent = false,
   number,
-  onPageChange
+  onPageChange,
 }: PaginationItemProps) {
-  if(isCurrent) {
+  if (isCurrent) {
     return (
-      <button 
+      <button
         disabled
-
-        className="w-9 h-8 border-2 border-green-300 text-gray-700 rounded bg-green-300"
+        className="w-9 h-8 desktop:w-9 desktop:h-8 smartphone:w-14 smartphone:h-12 border-2 border-green-300 text-gray-700 rounded bg-green-300"
       >
         {number}
       </button>
-    )
+    );
   }
 
   return (
-    <button 
+    <button
       onClick={() => onPageChange(number)}
-
-      className="w-9 h-8 border-2 border-green-300 text-green-300 rounded"
+      className="w-9 h-8 desktop:w-9 desktop:h-8 smartphone:w-14 smartphone:h-12 border-2 border-green-300 text-green-300 rounded"
     >
       {number}
     </button>
-  )
+  );
 }

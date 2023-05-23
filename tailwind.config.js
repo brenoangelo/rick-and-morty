@@ -6,6 +6,11 @@ module.exports = {
       backgroundImage: {
         'hero-pattern': "url('/public/assets/rick-and-morty.png')"
       },
+      screens: {
+        'smartphone': '375px',
+        'laptop': '1024px',
+        'desktop': '1280px',
+      },
       colors: {
         'green-300': '#BDFFA9',
         'yellow-300': '#F0E14B',

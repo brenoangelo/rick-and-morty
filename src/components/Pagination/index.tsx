@@ -44,7 +44,7 @@ export function Pagination({
         <>
           <PaginationItem number={1} onPageChange={onPageChange} />
           {currentPage > 2 + siblingsCount && (
-            <span className="w-9 h-8 border-2 border-gray-600 text-gray-600 rounded flex justify-center">
+            <span className="w-9 h-8 desktop:w-9 desktop:h-8 smartphone:w-14 smartphone:h-12 border-2 border-gray-600 text-gray-600 rounded flex justify-center items-center">
               ...
             </span>
           )}
@@ -74,7 +74,7 @@ export function Pagination({
       {currentPage + siblingsCount < lastPage && (
         <>
           {currentPage + 1 + siblingsCount < lastPage && (
-            <span className="w-9 h-8 border-2 border-gray-600 text-gray-600 rounded flex justify-center">
+            <span className="w-9 h-8 desktop:w-9 desktop:h-8 smartphone:w-14 smartphone:h-12 border-2 border-gray-600 text-gray-600 rounded flex justify-center items-center">
               ...
             </span>
           )}
