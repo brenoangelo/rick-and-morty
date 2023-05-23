@@ -19,7 +19,7 @@ export function Card({ name, status, image, id }: CardProps) {
   return (
     <Link
       to={`/character/${id}`}
-      className={`group w-48 h-64 relative border-2 rounded-md hover:border-green-300 cursor-pointer transition-colors`}
+      className={`group w-48 h-64 smartphone:w-full desktop:w-48 relative border-2 rounded-md hover:border-green-300 cursor-pointer transition-colors`}
     >
       <img
         src={image}

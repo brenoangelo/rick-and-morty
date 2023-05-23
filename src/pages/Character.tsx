@@ -22,7 +22,7 @@ export function Character() {
     <div className="container flex flex-col items-center py-20">
       <Link
         to="/"
-        className="h-8 flex items-center text-green-300 gap-2 w-full hover:animate-pulse"
+        className="h-8 flex items-center text-green-300 gap-2 w-full hover:animate-pulse pb-11 text-2xl"
       >
         <ArrowLeft /> Back to home
       </Link>
